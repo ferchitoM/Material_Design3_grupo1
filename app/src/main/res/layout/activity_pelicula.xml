@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    tools:context=".PeliculaActivity">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Avatar 2"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descripcion"
+        android:layout_width="0dp"
+        android:layout_height="229dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pellentesque ante eget libero lacinia condimentum non sed arcu. Morbi aliquet tortor molestie, vulputate magna vitae, vestibulum est. Phasellus sit amet feugiat risus. Ut auctor ligula eget hendrerit consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus rutrum vulputate. Vivamus tempor fringilla tellus, ut tincidunt mi lobortis eget. Sed ante odio, blandit vitae quam ut, malesuada gravida ex. Vivamus at imperdiet diam. Nullam hendrerit augue sit amet nisi sollicitudin cursus. Fusce vulputate, ex vel sagittis accumsan, nunc felis fermentum elit, a tempor purus diam id sem. Donec leo ipsum, bibendum vel porta et, pulvinar dignissim ex."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imagen"
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="153dp"
+        android:layout_height="229dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        tools:src="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

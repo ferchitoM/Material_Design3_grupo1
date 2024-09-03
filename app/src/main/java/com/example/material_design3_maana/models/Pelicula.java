@@ -9,5 +9,4 @@ public class Pelicula {
         this.titulo = titulo;
         this.imagen = imagen;
     }
-
 }

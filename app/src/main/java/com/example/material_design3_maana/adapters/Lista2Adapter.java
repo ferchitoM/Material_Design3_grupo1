@@ -1,6 +1,7 @@
 package com.example.material_design3_maana.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +21,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.material_design3_maana.PeliculaActivity;
 import com.example.material_design3_maana.R;
-import com.example.material_design3_maana.models.Pelicula;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,6 +53,13 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.MyViewHold
         String nombrePelicula = this.peliculas.get(position);
         descargarDatosPelicula(context, nombrePelicula, view);
 
+        view.itemView.setOnClickListener(v -> {
+            Log.e("msg", view.json);
+
+            Intent intent = new Intent(context, PeliculaActivity.class);
+            intent.putExtra("detallePelicula", view.json);
+            context.startActivity(intent);
+        });
     }
 
     private void descargarDatosPelicula(Context context, String pelicula, Lista2Adapter.MyViewHolder view) {
@@ -66,6 +74,9 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.MyViewHold
                 try {
                     String titulo = response.getString("Title");
                     String imageUrl = response.getString("Poster");
+
+                    //Guardamos el Json que recibimos de internet
+                    view.json = response.toString();
 
                     view.titulo.setText(titulo);
 
@@ -100,6 +111,7 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.MyViewHold
         TextView titulo;
         ImageView imagen;
         //TextView escalafon;
+        String json;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -107,6 +119,7 @@ public class Lista2Adapter extends RecyclerView.Adapter<Lista2Adapter.MyViewHold
             titulo = itemView.findViewById(R.id.titulo);
             imagen = itemView.findViewById(R.id.imagen);
             //escalafon = itemView.findViewById(R.id.escalafon);
+            json = "";
         }
     }
 }
